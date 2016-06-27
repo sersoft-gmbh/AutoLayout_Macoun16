@@ -1,0 +1,6 @@
+[submodule "Submodules/FFFoundation"]
+	path = Submodules/FFFoundation
+	url = https://github.com/ffried/FFFoundation
+[submodule "Submodules/FFUIKit"]
+	path = Submodules/FFUIKit
+	url = https://github.com/ffried/FFUIKit
