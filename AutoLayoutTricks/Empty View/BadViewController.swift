@@ -27,17 +27,15 @@ class BadViewController: UIViewController {
         return label
     }()
     
-    private(set) lazy var tapGesture: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(BadViewController.exerciseAmbiguity(_:)))
-        recognizer.numberOfTapsRequired = 1
-        recognizer.numberOfTouchesRequired = 1
-        return recognizer
+    private(set) lazy var barButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(BadViewController.exerciseAmbiguity(_:)))
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        navigationItem.rightBarButtonItem = barButtonItem
         
         let views = ["view": emptyView, "label": textLabel]
         views.values.forEach(view.addSubview)
@@ -50,8 +48,6 @@ class BadViewController: UIViewController {
                 textLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
         ]
         constraints.activate()
-        
-        view.addGestureRecognizer(tapGesture)
     }
     
     @IBAction func exerciseAmbiguity(sender: AnyObject?) {
