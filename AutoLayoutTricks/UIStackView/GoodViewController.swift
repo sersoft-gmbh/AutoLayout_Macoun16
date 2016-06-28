@@ -11,11 +11,9 @@ import FFUIKit
 import FFFoundation
 
 class GoodViewController: BadViewController {
-    override func configuredTopViewConstraints() -> [NSLayoutConstraint] {
-        let widthConstraint = topView.widthAnchor.constraintEqualToConstant(50)
-        let heightConstraint = topView.heightAnchor.constraintEqualToAnchor(topView.widthAnchor)
-        // Fix It
-        heightConstraint.priority = 999
-        return [widthConstraint, heightConstraint]
+    override func createTopViewHeightConstraint() -> NSLayoutConstraint {
+        let constraint = super.createTopViewHeightConstraint()
+        constraint.priority = 999
+        return constraint
     }
 }

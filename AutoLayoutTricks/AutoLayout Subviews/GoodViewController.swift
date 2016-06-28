@@ -11,12 +11,7 @@ import FFUIKit
 import FFFoundation
 
 class GoodViewController: BadViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // Fix it
-        firstLabel.setContentCompressionResistancePriority(755, forAxis: .Horizontal)
-        secondLabel.setContentHuggingPriority(255, forAxis: .Horizontal)
+    override func createView() -> UIView {
+        return GoodView()
     }
 }

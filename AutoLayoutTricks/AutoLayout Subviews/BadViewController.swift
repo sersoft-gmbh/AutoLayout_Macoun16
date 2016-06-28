@@ -11,57 +11,26 @@ import FFUIKit
 import FFFoundation
 
 class BadViewController: UIViewController {
-    let firstLabel: UILabel = {
-        let label = UILabel()
-        label.enableAutoLayout()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        label.text = "Label 1: Mehr Text für die Macoun!"
-        return label
-    }()
     
-    let secondLabel: UILabel = {
-        let label = UILabel()
-        label.enableAutoLayout()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
-        label.text = "Label 2: Leider geht's damit kaputt!"
-        return label
-    }()
-    
-    private(set) lazy var tapGesture: UITapGestureRecognizer = {
-        let recognizer = UITapGestureRecognizer()
-        recognizer.addTarget(self, action: #selector(BadViewController.exerciseAmbiguity(_:)))
-        recognizer.numberOfTapsRequired = 1
-        recognizer.numberOfTouchesRequired = 1
-        return recognizer
-    }()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        let views = ["first": firstLabel, "second": secondLabel]
-        views.values.forEach(view.addSubview)
+        let view = createView()
+        view.enableAutoLayout()
+        self.view.addSubview(view)
         
         let constraints = [
-            "H:|-[first]-(>=8)-[second]-|",
-            "V:|-(84)-[first]-(>=20)-|",
-            "V:|-(84)-[second]-(>=20)-|"
-            ].constraintsWithViews(views)
+            "H:|-(>=10)-[view]-(>=10)-|",
+            "V:|-(>=10)-[view]-(>=10)-|",
+            ].constraintsWithViews(["view": view]) + [
+                view.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
+                view.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor)
+        ]
         
         constraints.activate()
-        
-        view.addGestureRecognizer(tapGesture)
     }
     
-    @IBAction func exerciseAmbiguity(sender: AnyObject?) {
-        if firstLabel.hasAmbiguousLayout() {
-            print("FirstLabel has ambiguous layout")
-            firstLabel.exerciseAmbiguityInLayout()
-        } else if secondLabel.hasAmbiguousLayout() {
-            print("SecondLabel has ambiguous layout")
-            secondLabel.exerciseAmbiguityInLayout()
-        } else {
-            print("Labels have *no* ambiguous layout")
-        }
+    func createView() -> UIView {
+        return BadView()
     }
 }

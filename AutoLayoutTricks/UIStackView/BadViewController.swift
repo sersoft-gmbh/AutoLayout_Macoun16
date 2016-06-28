@@ -17,7 +17,7 @@ class BadViewController: UIViewController {
         view.axis = .Vertical
         view.spacing = 20
         view.alignment = .Center
-        view.distribution = .EqualSpacing
+        view.distribution = .EqualCentering
         return view
     }()
     
@@ -37,35 +37,46 @@ class BadViewController: UIViewController {
         return button
     }()
     
+    private var topViewWidthConstraint: NSLayoutConstraint!
+    private var topViewHeightConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
         view.addSubview(stackView)
         
+        topViewWidthConstraint = createTopViewWidthConstraint()
+        topViewHeightConstraint = createTopViewHeightConstraint()
+        
         let constraints = [
             "H:|-(>=0)-[stackView]-(>=0)-|",
             "V:|-(>=0)-[stackView]-(>=0)-|",
             ].constraintsWithViews(["stackView": stackView]) + [
                 stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
-                stackView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor)
+                stackView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
+                topViewWidthConstraint,
+                topViewHeightConstraint
         ]
         
         constraints.activate()
         
         [topView, bottomView].forEach(stackView.addArrangedSubview)
-        
-        configuredTopViewConstraints().activate()
     }
     
-    func configuredTopViewConstraints() -> [NSLayoutConstraint] {
-        let widthConstraint = topView.widthAnchor.constraintEqualToConstant(50)
-        let heightConstraint = topView.heightAnchor.constraintEqualToAnchor(topView.widthAnchor)
-        return [widthConstraint, heightConstraint]
+    func createTopViewWidthConstraint() -> NSLayoutConstraint {
+        return topView.widthAnchor.constraintEqualToConstant(50)
+    }
+    
+    func createTopViewHeightConstraint() -> NSLayoutConstraint {
+        return topView.heightAnchor.constraintEqualToConstant(50)
     }
     
     @IBAction func toggleTopView(sender: AnyObject?) {
         UIView.animateWithDuration(0.3) {
+            // Force layout cycle
+            self.topViewHeightConstraint.active.toggle()
+            // Adds a 0-Height constraint (created by UIStackView)
             self.topView.hidden.toggle()
         }
     }

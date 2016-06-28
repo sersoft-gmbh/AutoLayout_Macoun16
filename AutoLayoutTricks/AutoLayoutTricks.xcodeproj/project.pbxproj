@@ -28,6 +28,8 @@
 		071BC23A1D21AFAA00369E87 /* FFUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071BC2131D21AF3600369E87 /* FFUIKit.framework */; };
 		071BC23B1D21AFAA00369E87 /* FFUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 071BC2131D21AF3600369E87 /* FFUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		071BC23E1D21AFB000369E87 /* FFFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 071BC2051D21AF2B00369E87 /* FFFoundation.framework */; };
+		071BC2401D225A5600369E87 /* GoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BC23F1D225A5600369E87 /* GoodView.swift */; };
+		071BC2421D225A6100369E87 /* BadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 071BC2411D225A6100369E87 /* BadView.swift */; };
 		07A5289E1D219C3600FA504F /* BadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A5289D1D219C3600FA504F /* BadViewController.swift */; };
 		07A528A41D219CDD00FA504F /* GoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A528A31D219CDD00FA504F /* GoodViewController.swift */; };
 		07A528AC1D219DDF00FA504F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07A528AB1D219DDF00FA504F /* AppDelegate.swift */; };
@@ -293,6 +295,8 @@
 /* Begin PBXFileReference section */
 		071BC1FD1D21AF2B00369E87 /* FFFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FFFoundation.xcodeproj; path = ../Submodules/FFFoundation/FFFoundation/FFFoundation.xcodeproj; sourceTree = "<group>"; };
 		071BC20C1D21AF3500369E87 /* FFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FFUIKit.xcodeproj; path = ../Submodules/FFUIKit/FFUIKit/FFUIKit.xcodeproj; sourceTree = "<group>"; };
+		071BC23F1D225A5600369E87 /* GoodView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodView.swift; sourceTree = "<group>"; };
+		071BC2411D225A6100369E87 /* BadView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadView.swift; sourceTree = "<group>"; };
 		07A5289D1D219C3600FA504F /* BadViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadViewController.swift; sourceTree = "<group>"; };
 		07A528A31D219CDD00FA504F /* GoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoodViewController.swift; sourceTree = "<group>"; };
 		07A528A91D219DDF00FA504F /* Two Labels.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Two Labels.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -479,6 +483,8 @@
 				07A5294E1D21A3E400FA504F /* AppDelegate.swift */,
 				07A529731D21A46600FA504F /* BadViewController.swift */,
 				07A529741D21A46600FA504F /* GoodViewController.swift */,
+				071BC2411D225A6100369E87 /* BadView.swift */,
+				071BC23F1D225A5600369E87 /* GoodView.swift */,
 				07A529521D21A3E400FA504F /* Main.storyboard */,
 				07A529551D21A3E400FA504F /* Assets.xcassets */,
 				07A529571D21A3E400FA504F /* LaunchScreen.storyboard */,
@@ -878,6 +884,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				07A529751D21A46600FA504F /* BadViewController.swift in Sources */,
+				071BC2401D225A5600369E87 /* GoodView.swift in Sources */,
+				071BC2421D225A6100369E87 /* BadView.swift in Sources */,
 				07A529761D21A46600FA504F /* GoodViewController.swift in Sources */,
 				07A5294F1D21A3E400FA504F /* AppDelegate.swift in Sources */,
 			);
