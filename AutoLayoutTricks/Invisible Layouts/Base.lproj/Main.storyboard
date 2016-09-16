@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cmH-wb-3w3">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Selection View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="SelectionViewController" customModule="CommonKit" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="jnR-3w-5FI">
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6wN-lp-Z7W">
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" title="👎"/>
+                                        <connections>
+                                            <segue destination="FLQ-la-epI" kind="show" id="ls3-Rk-Iq7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN0-vg-Bee">
+                                        <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                        <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                        <state key="normal" title="👍"/>
+                                        <connections>
+                                            <segue destination="Ac7-fm-lBj" kind="show" id="olz-Yz-cn0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="jnR-3w-5FI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="4BD-cJ-8CG"/>
+                            <constraint firstItem="jnR-3w-5FI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="1" id="dO5-sd-ebx"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ax2-NL-9bl"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="947" y="355"/>
+        </scene>
+        <!--👎-->
+        <scene sceneID="YWi-WY-Oid">
+            <objects>
+                <viewController id="FLQ-la-epI" customClass="BadViewController" customModule="Invisible_Layouts" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Luh-7J-t9K"/>
+                        <viewControllerLayoutGuide type="bottom" id="4IM-ap-Zh2"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fr6-MG-Tld">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My little english translation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WLz-zk-43S">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="se2-pq-o5t">
+                                <state key="normal" title="Change Language"/>
+                                <connections>
+                                    <action selector="changeLanguageWithSender:" destination="FLQ-la-epI" eventType="touchUpInside" id="J9R-Yl-Pp0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="se2-pq-o5t" secondAttribute="trailing" constant="20" id="IS6-eC-YTF"/>
+                            <constraint firstItem="WLz-zk-43S" firstAttribute="top" secondItem="Luh-7J-t9K" secondAttribute="bottom" constant="20" id="dfd-Yj-M2h"/>
+                            <constraint firstItem="WLz-zk-43S" firstAttribute="leading" secondItem="fr6-MG-Tld" secondAttribute="leading" constant="20" id="eBb-Da-YEo"/>
+                            <constraint firstItem="se2-pq-o5t" firstAttribute="top" secondItem="WLz-zk-43S" secondAttribute="bottom" constant="40" id="n4N-8R-kox"/>
+                            <constraint firstItem="se2-pq-o5t" firstAttribute="leading" secondItem="fr6-MG-Tld" secondAttribute="leading" constant="20" id="sjZ-cK-omr"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="👎" id="Qe4-GY-svb">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="ThK-H6-ORH"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="outputLabel" destination="WLz-zk-43S" id="hS7-Vc-36F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2uR-us-br7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1690.4000000000001" y="-16.641679160419791"/>
+        </scene>
+        <!--👍-->
+        <scene sceneID="gqZ-Ei-o7N">
+            <objects>
+                <viewController id="Ac7-fm-lBj" customClass="GoodViewController" customModule="Invisible_Layouts" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0dl-v0-OZo"/>
+                        <viewControllerLayoutGuide type="bottom" id="f3d-1c-9n6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="uKC-3d-x46">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My little english translation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HuL-G5-Qc2">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhB-fR-dWP">
+                                <state key="normal" title="Change Language"/>
+                                <connections>
+                                    <action selector="changeLanguageWithSender:" destination="Ac7-fm-lBj" eventType="touchUpInside" id="dy8-zY-X3Z"/>
+                                    <action selector="changeLanguageWithSender:" destination="FLQ-la-epI" eventType="touchUpInside" id="i8e-95-hs2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="HuL-G5-Qc2" firstAttribute="leading" secondItem="uKC-3d-x46" secondAttribute="leading" constant="20" id="1VT-b0-LrJ"/>
+                            <constraint firstItem="HhB-fR-dWP" firstAttribute="leading" secondItem="uKC-3d-x46" secondAttribute="leading" constant="20" id="48j-yN-56I"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HhB-fR-dWP" secondAttribute="trailing" constant="20" id="K3L-cu-OzW"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HuL-G5-Qc2" secondAttribute="trailing" constant="20" id="Lnf-qm-3jQ"/>
+                            <constraint firstItem="HhB-fR-dWP" firstAttribute="top" secondItem="HuL-G5-Qc2" secondAttribute="bottom" constant="40" id="O8g-v4-rc3"/>
+                            <constraint firstItem="HuL-G5-Qc2" firstAttribute="top" secondItem="0dl-v0-OZo" secondAttribute="bottom" constant="20" id="eCC-fR-6iA"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="👍" id="qro-rH-iEX">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="fL5-cD-cnE"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="outputLabel" destination="HuL-G5-Qc2" id="Zuc-oh-jky"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BO5-34-aMn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1691" y="679"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="CJi-eM-lOY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cmH-wb-3w3" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="SlZ-DM-Otg">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="EQn-Ou-EkA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="THj-bG-H9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135" y="355"/>
+        </scene>
+    </scenes>
+</document>

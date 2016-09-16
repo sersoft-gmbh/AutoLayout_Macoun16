@@ -12,7 +12,7 @@ import FFFoundation
 
 class BadViewController: UIViewController {
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         let view = createView()
@@ -22,9 +22,9 @@ class BadViewController: UIViewController {
         let constraints = [
             "H:|-(>=10)-[view]-(>=10)-|",
             "V:|-(>=10)-[view]-(>=10)-|",
-            ].constraints(with: ["view": view]) + [
-                view.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                view.centerYAnchor.constraint(equalTo: self.view.centerYAnchor)
+            ].constraintsWithViews(["view": view]) + [
+                view.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
+                view.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor)
         ]
         
         constraints.activate()

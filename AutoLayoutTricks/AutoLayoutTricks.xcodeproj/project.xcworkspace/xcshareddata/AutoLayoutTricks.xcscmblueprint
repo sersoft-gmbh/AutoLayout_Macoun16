@@ -10,7 +10,7 @@
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5D8A3381-75E1-4C6F-8B8E-1C5ED9E5303D",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "5134F3F7A71ADD498CB13E4A9C7574DD5D40E192" : "AutoLayout_Macoun16\/Submodules\/FFFoundation\/",
+    "5134F3F7A71ADD498CB13E4A9C7574DD5D40E192" : "AutoLayout_Macoun16\/Submodules\/FFUIKit\/Submodules\/FFFoundation\/",
     "CE0ED282A9952C2CD6A137B67E40D3F3F40FCA68" : "AutoLayout_Macoun16\/Submodules\/FFUIKit\/",
     "5D3DE594864EF02D58850EFD1500723835978BE9" : "AutoLayout_Macoun16\/"
   },
