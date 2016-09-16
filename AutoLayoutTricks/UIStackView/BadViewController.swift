@@ -14,31 +14,31 @@ class BadViewController: UIViewController {
     let stackView: UIStackView = {
         let view = UIStackView()
         view.enableAutoLayout()
-        view.axis = .Vertical
+        view.axis = .vertical
         view.spacing = 20
-        view.alignment = .Center
-        view.distribution = .EqualCentering
+        view.alignment = .center
+        view.distribution = .equalCentering
         return view
     }()
     
     let topView: UIView = {
         let view = UIView()
         view.enableAutoLayout()
-        view.backgroundColor = .blueColor()
+        view.backgroundColor = .blue
         view.layer.cornerRadius = 25
         return view
     }()
     
-    private(set) lazy var bottomView: UIButton = {
-        let button = UIButton(type: .System)
+    fileprivate(set) lazy var bottomView: UIButton = {
+        let button = UIButton(type: .system)
         button.enableAutoLayout()
-        button.addTarget(self, action: #selector(BadViewController.toggleTopView(_:)), forControlEvents: .TouchUpInside)
-        button.setTitle("Mal da, mal weg", forState: .Normal)
+        button.addTarget(self, action: #selector(BadViewController.toggleTopView(_:)), for: .touchUpInside)
+        button.setTitle("Mal da, mal weg", for: UIControlState())
         return button
     }()
     
-    private var topViewWidthConstraint: NSLayoutConstraint!
-    private var topViewHeightConstraint: NSLayoutConstraint!
+    fileprivate var topViewWidthConstraint: NSLayoutConstraint!
+    fileprivate var topViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,9 +52,9 @@ class BadViewController: UIViewController {
         let constraints = [
             "H:|-(>=0)-[stackView]-(>=0)-|",
             "V:|-(>=0)-[stackView]-(>=0)-|",
-            ].constraintsWithViews(["stackView": stackView]) + [
-                stackView.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor),
-                stackView.centerYAnchor.constraintEqualToAnchor(view.centerYAnchor),
+            ].constraints(with: ["stackView": stackView]) + [
+                stackView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+                stackView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
                 topViewWidthConstraint,
                 topViewHeightConstraint
         ]
@@ -65,19 +65,19 @@ class BadViewController: UIViewController {
     }
     
     func createTopViewWidthConstraint() -> NSLayoutConstraint {
-        return topView.widthAnchor.constraintEqualToConstant(50)
+        return topView.widthAnchor.constraint(equalToConstant: 50)
     }
     
     func createTopViewHeightConstraint() -> NSLayoutConstraint {
-        return topView.heightAnchor.constraintEqualToConstant(50)
+        return topView.heightAnchor.constraint(equalToConstant: 50)
     }
     
-    @IBAction func toggleTopView(sender: AnyObject?) {
-        UIView.animateWithDuration(0.3) {
+    @IBAction func toggleTopView(_ sender: AnyObject?) {
+        UIView.animate(withDuration: 0.3, animations: {
             // Force layout cycle
-            self.topViewHeightConstraint.active.toggle()
+            self.topViewHeightConstraint.isActive.toggle()
             // Adds a 0-Height constraint (created by UIStackView)
-            self.topView.hidden.toggle()
-        }
+            self.topView.isHidden.toggle()
+        }) 
     }
 }
