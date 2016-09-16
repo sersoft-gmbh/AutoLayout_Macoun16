@@ -16,7 +16,7 @@ class GoodViewController: BadViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // Fix it
-        firstLabel.setContentCompressionResistancePriority(755, forAxis: .Horizontal)
-        secondLabel.setContentHuggingPriority(255, forAxis: .Horizontal)
+        firstLabel.setContentCompressionResistancePriority(755, for: .horizontal)
+        secondLabel.setContentHuggingPriority(255, for: .horizontal)
     }
 }

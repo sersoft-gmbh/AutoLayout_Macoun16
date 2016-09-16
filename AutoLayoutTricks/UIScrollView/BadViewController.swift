@@ -31,8 +31,8 @@ class BadViewController: UIViewController {
         let label = UILabel()
         label.enableAutoLayout()
         label.numberOfLines = 0
-        label.lineBreakMode = .ByWordWrapping
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        label.lineBreakMode = .byWordWrapping
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.body)
         label.text = "Die Macoun macht allen Spass!" * 15
         return label
     }()
@@ -41,8 +41,8 @@ class BadViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        scrollView.setupFullscreenInView(view)
-        contentView.setupFullscreenInView(scrollView)
-        textLabel.setupFullscreenInView(contentView)
+        scrollView.setupFullscreen(in: view)
+        contentView.setupFullscreen(in: scrollView)
+        textLabel.setupFullscreen(in: contentView)
     }
 }

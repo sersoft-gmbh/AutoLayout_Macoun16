@@ -10,7 +10,7 @@ import UIKit
 import FFUIKit
 import FFFoundation
 
-func *=(inout lhs: String?, rhs: Int) {
+func *=(lhs: inout String?, rhs: Int) {
     lhs = lhs.map { str in (1..<rhs).reduce(str) { $0.0 + " " + str } }
 }
 
@@ -20,6 +20,6 @@ class GoodViewController: BadViewController {
         
         textLabel.text *= 5
         
-        contentView.widthAnchor.constraintEqualToAnchor(scrollView.widthAnchor).active = true
+        contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
     }
 }

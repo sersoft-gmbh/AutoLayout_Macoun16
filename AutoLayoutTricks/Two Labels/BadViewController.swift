@@ -14,7 +14,7 @@ class BadViewController: UIViewController {
     let firstLabel: UILabel = {
         let label = UILabel()
         label.enableAutoLayout()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
         label.text = "Label 1: Mehr Text für die Macoun!"
         return label
     }()
@@ -22,13 +22,13 @@ class BadViewController: UIViewController {
     let secondLabel: UILabel = {
         let label = UILabel()
         label.enableAutoLayout()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleCaption1)
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.caption1)
         label.text = "Label 2: Leider geht's damit kaputt!"
         return label
     }()
     
-    private(set) lazy var barButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(BadViewController.exerciseAmbiguity(_:)))
+    fileprivate(set) lazy var barButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(BadViewController.exerciseAmbiguity(_:)))
     }()
     
     override func viewDidLoad() {
@@ -44,16 +44,16 @@ class BadViewController: UIViewController {
             "H:|-[first]-(>=8)-[second]-|",
             "V:|-(84)-[first]-(>=20)-|",
             "V:|-(84)-[second]-(>=20)-|"
-            ].constraintsWithViews(views)
+            ].constraints(with: views)
         
         constraints.activate()
     }
     
-    @IBAction func exerciseAmbiguity(sender: AnyObject?) {
-        if firstLabel.hasAmbiguousLayout() {
+    @IBAction func exerciseAmbiguity(_ sender: AnyObject?) {
+        if firstLabel.hasAmbiguousLayout {
             print("FirstLabel has ambiguous layout")
             firstLabel.exerciseAmbiguityInLayout()
-        } else if secondLabel.hasAmbiguousLayout() {
+        } else if secondLabel.hasAmbiguousLayout {
             print("SecondLabel has ambiguous layout")
             secondLabel.exerciseAmbiguityInLayout()
         } else {
