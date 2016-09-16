@@ -14,21 +14,21 @@ class BadViewController: UIViewController {
     let emptyView: UIView = {
         let view = UIView()
         view.enableAutoLayout()
-        view.backgroundColor = .blueColor()
-        view.userInteractionEnabled = false
+        view.backgroundColor = .blue
+        view.isUserInteractionEnabled = false
         return view
     }()
     
     let textLabel: UILabel = {
         let label = UILabel()
         label.enableAutoLayout()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
         label.text = "Hallo Macoun!"
         return label
     }()
     
-    private(set) lazy var barButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(barButtonSystemItem: .Refresh, target: self, action: #selector(BadViewController.exerciseAmbiguity(_:)))
+    fileprivate(set) lazy var barButtonItem: UIBarButtonItem = {
+        return UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(BadViewController.exerciseAmbiguity(_:)))
     }()
     
     override func viewDidLoad() {
@@ -44,14 +44,14 @@ class BadViewController: UIViewController {
             "H:|-[view]-|",
             "H:|-(>=8)-[label]-(>=8)-|",
             "V:|-(84)-[view]-[label]-(>=20)-|"
-            ].constraintsWithViews(views) + [
-                textLabel.centerXAnchor.constraintEqualToAnchor(view.centerXAnchor)
+            ].constraints(with: views) + [
+                textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ]
         constraints.activate()
     }
     
-    @IBAction func exerciseAmbiguity(sender: AnyObject?) {
-        if emptyView.hasAmbiguousLayout() {
+    @IBAction func exerciseAmbiguity(_ sender: AnyObject?) {
+        if emptyView.hasAmbiguousLayout {
             print("EmptyView has ambiguous layout")
             emptyView.exerciseAmbiguityInLayout()
         } else {

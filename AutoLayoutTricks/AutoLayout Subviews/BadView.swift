@@ -13,7 +13,7 @@ class BadView: UIView {
     let textLabel: UILabel = {
         let label = UILabel()
         label.enableAutoLayout()
-        label.font = UIFont.preferredFontForTextStyle(UIFontTextStyleTitle1)
+        label.font = UIFont.preferredFont(forTextStyle: UIFontTextStyle.title1)
         label.text = "Hallo Macoun!"
         return label
     }()
@@ -35,12 +35,12 @@ class BadView: UIView {
         
     }
     
-    private final func initialize() {
+    fileprivate final func initialize() {
         addSubview(textLabel)
         let constraints = [
             "H:|-[label]-|",
             "V:|-[label]-|"
-            ].constraintsWithViews(["label": textLabel])
+            ].constraints(with: ["label": textLabel])
         constraints.activate()
         layoutIfNeeded()
     }

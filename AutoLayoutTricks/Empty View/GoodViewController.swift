@@ -17,6 +17,6 @@ class GoodViewController: BadViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         // Fix it
-        emptyView.heightAnchor.constraintEqualToConstant(50).active = true
+        emptyView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
 }

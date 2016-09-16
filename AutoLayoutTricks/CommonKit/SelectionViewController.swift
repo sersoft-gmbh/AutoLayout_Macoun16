@@ -9,18 +9,18 @@
 import UIKit
 import FFFoundation
 
-public class SelectionViewController: UIViewController {
+open class SelectionViewController: UIViewController {
     @IBOutlet weak var stackView: UIStackView!
     @IBOutlet weak var badButton: UIButton!
     @IBOutlet weak var goodButton: UIButton!
     
-    public override func viewWillAppear(animated: Bool) {
+    open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         title = (App.name ?? "⁉️") + " Sample"
     }
     
-    public override func viewWillDisappear(animated: Bool) {
+    open override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         title = nil
