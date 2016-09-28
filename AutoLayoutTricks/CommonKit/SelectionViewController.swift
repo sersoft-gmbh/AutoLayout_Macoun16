@@ -17,7 +17,7 @@ open class SelectionViewController: UIViewController {
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        title = (App.name ?? "⁉️") + " Sample"
+        title = (Application.shared.name ?? "⁉️") + " Sample"
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
