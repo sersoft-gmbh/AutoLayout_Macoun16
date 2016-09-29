@@ -14,10 +14,16 @@ open class SelectionViewController: UIViewController {
     @IBOutlet weak var badButton: UIButton!
     @IBOutlet weak var goodButton: UIButton!
     
+    private var firstTime: Bool = true
+    
     open override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         title = (Application.shared.name ?? "⁉️") + " Sample"
+        if firstTime {
+            performSegue(withIdentifier: "pushBadVC", sender: nil)
+            firstTime = false
+        }
     }
     
     open override func viewWillDisappear(_ animated: Bool) {
