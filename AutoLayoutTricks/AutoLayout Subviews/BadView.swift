@@ -35,7 +35,7 @@ class BadView: UIView {
         
     }
     
-    fileprivate final func initialize() {
+    private final func initialize() {
         addSubview(textLabel)
         let constraints = [
             "H:|-[label]-|",
