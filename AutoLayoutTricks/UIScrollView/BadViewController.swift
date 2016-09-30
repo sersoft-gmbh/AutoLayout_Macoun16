@@ -42,7 +42,7 @@ class BadViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         
         scrollView.setupFullscreen(in: view)
-        contentView.setupFullscreen(in: scrollView)
-        textLabel.setupFullscreen(in: contentView)
+//        contentView.setupFullscreen(in: scrollView)
+        textLabel.setupFullscreen(in: scrollView)
     }
 }
